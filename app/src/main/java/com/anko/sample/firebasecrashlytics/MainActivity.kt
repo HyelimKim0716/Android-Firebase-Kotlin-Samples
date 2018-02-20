@@ -3,6 +3,7 @@ package com.anko.sample.firebasecrashlytics
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.crashlytics.android.Crashlytics
 import com.google.firebase.analytics.FirebaseAnalytics
 import org.jetbrains.anko.button
 import org.jetbrains.anko.verticalLayout
@@ -23,6 +24,13 @@ class MainActivity : AppCompatActivity() {
                     Log.d("List", "list[1] ${list[10]}")
 
 
+                }
+            }
+
+            button("CrashlyticsLog") {
+                setOnClickListener {
+                    Crashlytics.log("CrashlyticsLogButtonClicked")
+                    Crashlytics.log(0, "MainActivityCrashlyticsLogButton", "CrashlyticsLogButtonClicked")
                 }
             }
 
